@@ -1,0 +1,75 @@
+# .clang-format file for your C++ project
+
+# Base style: Options include LLVM, Google, Chromium, Mozilla, WebKit
+BasedOnStyle: LLVM
+
+# Use tab characters instead of spaces for indentation
+UseTab: Always
+
+# Set the number of spaces per indentation level
+IndentWidth: 2
+
+# Set the number of spaces per tab
+TabWidth: 2
+
+# Always put braces on a new line (Allman style)
+BreakBeforeBraces: Allman
+
+# Allow short if, for, while, and do-while statements without braces
+AllowShortBlocksOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+
+# Indent case labels in switch statements
+IndentCaseLabels: true
+
+# Include block comments on a separate line
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeTernaryOperators: true
+BreakStringLiterals: true
+
+# Wrap after function return type if the line is too long
+AlignAfterOpenBracket: Align
+
+# Control the placement of constructor initializer lists
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ConstructorInitializerIndentWidth: 2
+
+# Align trailing comments to the right
+AlignTrailingComments: true
+
+# Control spacing inside parentheses, brackets, and braces
+SpacesInParentheses: false
+SpaceInEmptyParentheses: false
+SpacesInSquareBrackets: false
+SpaceBeforeCpp11BracedList: false
+SpaceAfterTemplateKeyword: false
+SpaceAfterLogicalNot: false
+
+# Sort includes and keep related groups together
+SortIncludes: true
+IncludeCategories:
+  - Regex: '^<.*\.h>'
+    Priority: 1
+  - Regex: '^"'
+    Priority: 2
+
+# Control function declarations and definitions formatting
+AllowAllParametersOfDeclarationOnNextLine: false
+AlwaysBreakAfterReturnType: None
+AlwaysBreakAfterDefinitionReturnType: None
+
+# Control the alignment of declarations and assignments
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+
+# Control the placement of inline comments
+CommentPragmas: '^ IWYU pragma:'
+SpaceBeforeParens: ControlStatements
+SpacesInParentheses: false
+SpaceAfterCStyleCast: true
+
+# Additional settings
+BreakConstructorInitializersBeforeComma: true
+AlignAfterOpenBracket: Align
+PenaltyIndentedWhitespace: 50

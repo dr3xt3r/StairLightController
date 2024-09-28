@@ -1,0 +1,45 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Run Cppcheck",
+        "type": "shell",
+        "command": "mkdir -p build/cppcheck && cppcheck --enable=all --inconclusive --suppress=missingIncludeSystem --suppress=unmatchedSuppression --cppcheck-build-dir=build/cppcheck/ src/",
+        "problemMatcher": [],
+        "presentation": {
+          "echo": true,
+          "reveal": "always",
+          "focus": false,
+          "panel": "shared"
+        }
+      },
+      {
+        "label": "Clean Generated Files",
+        "type": "shell",
+        "command": "${workspaceFolder}/clean_project.sh",
+        "group": {
+          "kind": "none",
+          "isDefault": false
+        },
+        "presentation": {
+          "reveal": "always",
+          "panel": "shared"
+        },
+        "problemMatcher": []
+      },
+      {
+        "label": "Run Valgrind",
+        "type": "shell",
+        "command": "valgrind --tool=memcheck --leak-check=full --track-origins=yes --show-leak-kinds=all ${command:cmake.launchTargetPath}",
+        "group": {
+          "kind": "none",
+          "isDefault": false
+        },
+        "presentation": {
+          "reveal": "always",
+          "panel": "shared"
+        },
+        "problemMatcher": []
+      }
+    ]
+}

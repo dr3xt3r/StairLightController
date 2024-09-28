@@ -1,0 +1,33 @@
+# For changes to take effect, press F1 and run 'clangd: Restart language'
+
+# Use the LLVM coding standard.
+Checks: >
+  -*,
+  bugprone-*,
+  cert-*,
+  cppcoreguidelines-*,
+  clang-analyzer-*,
+  performance-*,
+  readability-*,
+  modernize-*,
+  misc-*,
+  portability-*,
+  google-*,
+  hicpp-*,
+
+  -modernize-use-trailing-return-type,
+
+WarningsAsErrors: '*'
+HeaderFilterRegex: '.*'
+FormatStyle: llvm
+AnalyzeTemporaryDtors: true
+CheckOptions:
+  - key: modernize-loop-convert.MaxCopySize
+    value: '16'
+  - key: readability-identifier-naming.VariableCase
+    value: 'lower_case'
+  - key: readability-identifier-naming.FunctionCase
+    value: 'camelBack'
+
+# Configure include paths (optional)
+ExtraArgs: ['-std=c++20', '-I/include', '-Wall', '-Wextra', '-Wpedantic']
