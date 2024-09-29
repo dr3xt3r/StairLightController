@@ -30,7 +30,7 @@
  *  @retval TRUE => initialization was successful
  *  @retval FALSE => initialization failed
  ******************************************************************************/
-bool_t bsp_io_bout_init(void); // NOLINT(readability-identifier-naming)
+bool_t bsp_io_bout_init(void);
 
 
 /***************************************************************************//**
@@ -41,7 +41,7 @@ bool_t bsp_io_bout_init(void); // NOLINT(readability-identifier-naming)
  *  @retval TRUE => successful
  *  @retval FALSE => failed
  ******************************************************************************/
-bool_t bsp_io_bout_set(const bool_t bout_state); // NOLINT(readability-identifier-naming, readability-avoid-const-params-in-decls)
+bool_t bsp_io_bout_set(const bool_t bout_state);
 
 
 /****************************************************************************//**

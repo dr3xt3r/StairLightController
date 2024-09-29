@@ -12,6 +12,9 @@ project(${PROJECT_NAME} LANGUAGES C)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED YES)
 
+# Set up the RTOS_IMPLEMENTATION option
+set(RTOS_IMPLEMENTATION "embOS" CACHE STRING "Select the RTOS implementation (e.g., FreeRTOS, embOS)")
+
 # Collect all source files in the src directory
 file(GLOB_RECURSE SOURCES "src/*.c")
 
@@ -20,6 +23,17 @@ include_directories(include)
 
 # Add the executable
 add_executable(${EXECUTABLE_NAME} ${SOURCES})
+
+# Conditionally add the RTOS source file based on the selected implementation
+if(RTOS_IMPLEMENTATION STREQUAL "embOS")
+    list(APPEND SOURCES "src/rtos_embos.c")
+    target_compile_definitions(${EXECUTABLE_NAME} PRIVATE USE_EMBOS)
+elseif(RTOS_IMPLEMENTATION STREQUAL "FreeRTOS")
+    list(APPEND SOURCES "src/rtos_freertos.c")
+    target_compile_definitions(${EXECUTABLE_NAME} PRIVATE USE_FREERTOS)
+else()
+    message(FATAL_ERROR "Unknown RTOS implementation selected: ${RTOS_IMPLEMENTATION}")
+endif()
 
 # Add the executable with sanitizer flags applied
 add_executable(${SANITIZED_EXECUTABLE_NAME} ${SOURCES})

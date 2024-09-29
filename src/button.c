@@ -1,26 +1,27 @@
 /*************************************************************************
- * @file         data_types.h
+ * @file         button.c
  * @author       Richard Vano
- * @brief        Data types definition
+ * @brief        Button abstraction module
  *
- * Dummy file with data types definition to make it possible to compile
+ * This module provides an abstraction for button handling
  *
  *************************************************************************/
-
-#ifndef DATA_TYPES_H
-#define DATA_TYPES_H
 
 /*************************************************************************
  * Includes
  *************************************************************************/
-#include <stdbool.h>
+#include "button.h"
+#include "bsp_io_bin.h" // Provided button library
 
 /*************************************************************************
- * Function prototypes
+ * Function definitions
  *************************************************************************/
-/**
- * @brief   Type definition for boolean values.
- */
-typedef bool bool_t;
+void buttonInit(void)
+{
+	bsp_io_bin_init(); // Initialize the button (hardware-specific)
+}
 
-#endif // DATA_TYPES_H
+bool buttonIsPressed(void)
+{
+	return bsp_io_bin_get(); // Read the button state (hardware-specific)
+}

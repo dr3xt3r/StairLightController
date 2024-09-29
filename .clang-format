@@ -9,6 +9,9 @@ UseTab: Always
 # Set the number of spaces per indentation level
 IndentWidth: 2
 
+# Set the number of columns before a line is wrapped
+ColumnLimit: 100
+
 # Set the number of spaces per tab
 TabWidth: 2
 
@@ -19,6 +22,7 @@ BreakBeforeBraces: Allman
 AllowShortBlocksOnASingleLine: false
 AllowShortIfStatementsOnASingleLine: false
 AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: false
 
 # Indent case labels in switch statements
 IndentCaseLabels: true
@@ -73,3 +77,8 @@ SpaceAfterCStyleCast: true
 BreakConstructorInitializersBeforeComma: true
 AlignAfterOpenBracket: Align
 PenaltyIndentedWhitespace: 50
+
+# Alignment settings
+AlignTrailingComments: true
+AlignConsecutiveMacros: true
+AlignTrailingComments: true

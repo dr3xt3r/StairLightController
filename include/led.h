@@ -1,26 +1,37 @@
 /*************************************************************************
- * @file         data_types.h
+ * @file         led.h
  * @author       Richard Vano
- * @brief        Data types definition
+ * @brief        LED abstraction module
  *
- * Dummy file with data types definition to make it possible to compile
+ * This module provides an abstraction for LED handling
  *
  *************************************************************************/
 
-#ifndef DATA_TYPES_H
-#define DATA_TYPES_H
+#ifndef LED_H
+#define LED_H
 
 /*************************************************************************
  * Includes
  *************************************************************************/
-#include <stdbool.h>
+#include "data_types.h"
 
 /*************************************************************************
  * Function prototypes
  *************************************************************************/
 /**
- * @brief   Type definition for boolean values.
+ * @brief   Initializes the LED.
+ *
+ * @param   None
+ * @return  None
  */
-typedef bool bool_t;
+void ledInit(void);
 
-#endif // DATA_TYPES_H
+/**
+ * @brief   Turns on the LED.
+ *
+ * @param   state   The state of the LED (true = on, false = off)
+ * @return  None
+ */
+void ledChangeState(bool_t state);
+
+#endif // LED_H

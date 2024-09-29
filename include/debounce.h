@@ -1,26 +1,30 @@
 /*************************************************************************
- * @file         data_types.h
+ * @file         debounce.h
  * @author       Richard Vano
- * @brief        Data types definition
- *
- * Dummy file with data types definition to make it possible to compile
+ * @brief        Button debounce module
  *
  *************************************************************************/
 
-#ifndef DATA_TYPES_H
-#define DATA_TYPES_H
+#ifndef DEBOUNCE_H
+#define DEBOUNCE_H
 
 /*************************************************************************
  * Includes
  *************************************************************************/
-#include <stdbool.h>
+#include <stdint.h>
 
 /*************************************************************************
  * Function prototypes
  *************************************************************************/
 /**
- * @brief   Type definition for boolean values.
+ * @brief Initialize debounce logic
  */
-typedef bool bool_t;
+void debounceInit(void);
 
-#endif // DATA_TYPES_H
+/**
+ * @brief Check for debounced button press
+ * @return Non-zero if a debounced button press was detected, 0 otherwise
+ */
+uint8_t getDebouncedPress(void);
+
+#endif /* DEBOUNCE_H */

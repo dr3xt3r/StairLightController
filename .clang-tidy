@@ -30,4 +30,4 @@ CheckOptions:
     value: 'camelBack'
 
 # Configure include paths (optional)
-ExtraArgs: ['-std=c++20', '-I/include', '-Wall', '-Wextra', '-Wpedantic']
+ExtraArgs: ['-I/include', '-Wall', '-Wextra', '-Wpedantic']

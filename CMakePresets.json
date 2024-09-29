@@ -9,30 +9,32 @@
             "cacheVariables": {
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/install",
                 "CMAKE_C_COMPILER": "/usr/bin/gcc",
-                "CMAKE_CXX_COMPILER": "/usr/bin/g++",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
                 "CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}/build/bin",
                 "CMAKE_LIBRARY_OUTPUT_DIRECTORY": "${sourceDir}/build/lib",
                 "CMAKE_ARCHIVE_OUTPUT_DIRECTORY": "${sourceDir}/build/lib",
-                "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic"
+                "CMAKE_C_FLAGS": "-Wall -Wextra -Wpedantic"
             }
         },
         {
-            "name": "debug_config",
-            "displayName": "Debug configuration",
-            "description": "Using compilers: C = /usr/bin/gcc, CXX = /usr/bin/g++",
+            "name": "debug_config_embos",
+            "displayName": "Debug configuration embOS",
+            "description": "Using compilers: C = /usr/bin/gcc",
             "inherits": ["default"],
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
+                "CMAKE_BUILD_TYPE": "Debug",
+                "RTOS_IMPLEMENTATION": "embOS"
             }
         },
         {
-            "name": "release_config",
-            "displayName": "Release configuration",
-            "description": "Using compilers: C = /usr/bin/gcc, CXX = /usr/bin/g++",
+            "name": "release_config_embos",
+            "displayName": "Release configuration embOS",
+            "description": "Using compilers: C = /usr/bin/gcc",
             "inherits": ["default"],
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_C_FLAGS": "-DNDEBUG",
+                "RTOS_IMPLEMENTATION": "embOS"
             }
         }
     ],
@@ -40,7 +42,7 @@
         {
             "name": "build_debug",
             "displayName": "Build Debug",
-            "configurePreset": "debug_config",
+            "configurePreset": "debug_config_embos",
             "description": "Builds the project using the Debug configuration",
             "verbose": false
         },
@@ -54,7 +56,7 @@
         {
             "name": "build_release",
             "displayName": "Build Release",
-            "configurePreset": "release_config",
+            "configurePreset": "release_config_embos",
             "description": "Builds the project using the Release configuration",
             "verbose": false
         },

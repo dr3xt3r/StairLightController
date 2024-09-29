@@ -43,7 +43,7 @@ bool_t bsp_io_bin_init(void); // NOLINT(readability-identifier-naming)
  *  @retval TRUE => initialization was successful
  *  @retval FALSE => initialization failed
  ******************************************************************************/
-bool_t bsp_io_bin_interrupt_en(void (*int_callback)(void)); // NOLINT(readability-identifier-naming)
+bool_t bsp_io_bin_interrupt_en(void (*int_callback)(void));
 
 
 /***************************************************************************//**
