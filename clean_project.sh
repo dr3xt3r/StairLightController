@@ -14,3 +14,9 @@ clear_folder() {
     echo "$folder does not exist"
   fi
 }
+
+# clear the contents of the '.cache' folder
+clear_folder .cache
+
+# clear the contents of the 'build' folder
+clear_folder build
